@@ -5,69 +5,77 @@ Saya Nina Wulandari dengan NIM 2312091 mengerjakan Tugas Praktikum 4 dalam mata 
 # Desain Form
 ![FORM](https://github.com/user-attachments/assets/622954bb-284f-40af-b70a-7cacad44da29)
 
+# Desain Class
+
 
 # Penjelasan Atribut dan Methods
-1. Class Komponen
-   * string merk → Menyimpan merek (brand) dari komponen.
-   * int harga → Menyimpan harga dari komponen.
-     
-2. Class Ram
-   * int kapasitas → Menyimpan kapasitas RAM.
-   * int kecepatan → Menyimpan kecepatan RAM.
-   * string tipe → Menyimpan tipe RAM (DDR4, DDR5, dll).
-     
-3. Class Processor
-   * int core_count → Menyimpan jumlah core pada processor.
-   * double clock_speed → Menyimpan kecepatan clock processor.
-     
-4. Class Harddrive
-   * int kapasitas → Menyimpan kapasitas penyimpanan.
-   * string tipe → Menyimpan tipe penyimpanan (HDD/SSD).
-     
-5. Class Gpu
-   * int vram_size → Menyimpan ukuran VRAM dari GPU.
-   * string architecture → Menyimpan arsitektur GPU.
-     
-6. Class Cpu
-   * int cache_size → Menyimpan ukuran cache CPU.
-   * bool hyper_threading → Menyimpan status dukungan hyper-threading.
-     
-7. Class Komputer
-   * string pemilik → Menyimpan nama pemilik komputer.
-   * string os → Menyimpan sistem operasi yang digunakan.
-   * string jenis → Menyimpan jenis komputer (PC/Laptop).
-   * Cpu cpu → Menyimpan informasi CPU yang digunakan.
-   * Gpu gpu → Menyimpan informasi GPU yang digunakan.
-   * list<Ram> ram_list → Menyimpan daftar RAM yang terpasang.
-   * list<Harddrive> harddrive_list → Menyimpan daftar hard drive yang terpasang.
-     
-    Methods:
-    * void add_ram(Ram ram) → Menambahkan RAM ke dalam daftar RAM.
-    * void add_harddrive(Harddrive harddrive) → Menambahkan hard drive ke dalam daftar hard
-      drive.
+1. Class Mahasiswa (Model) → Kelas ini merepresentasikan objek mahasiswa.
+   * string nim
+   * string nama
+   * string jenisKelamin
+   * string statusMahasiswa
+
+     Methods:
+      * getter dan setter untuk mengakses dan memodifikasi atribut mahasiswa.
     
-8. Class Laptop
-   * int kapasitas_baterai → Menyimpan kapasitas baterai laptop.
-   * double berat → Menyimpan berat laptop.
-   * int jumlah_baterai → Menyimpan jumlah baterai yang digunakan.
+2. Class Menu (View + Controller) → Kelas ini adalah GUI yang mewarisi JFrame
+   * int selectedIndex
+   * ArrayList<Mahasiswa> listMahasiswa
+   * JPanel mainPanel
+   * JTextField nimField
+   * JTextField namaField
+   * JTable mahasiswaTable
+   * JButton addUpdateButton
+   * JButton cancelButton
+   * JComboBox<String> jenisKelaminComboBox
+   * JComboBox<String> statusMahasiswaComboBox
+   * JButton deleteButton
+   * JLabel titleLabel
+   * JLabel nimLabel
+   * JLabel namaLabel
+   * JLabel jenisKelaminLabel
+   * JLabel StatusMahasiswaLabel
      
-9. Class Pc
-   * int daya_psu → Menyimpan daya PSU dalam watt.
-   * string jenis_pendingin → Menyimpan jenis sistem pendingin yang digunakan.
-   * int jumlah_slot_expan → Menyimpan jumlah slot ekspansi yang tersedia.
-     
-Masing-masing class memiliki Methods:
-* Getter di tiap atribut untuk mengambil nilai dari atribut suatu objek.
-* Setter di tiap atribut untuk menetapkan nilai atribut suatu objek.
+     Methods:
+        * setTable() → membuat tabel untuk menampilkan data mahasiswa dari listMahasiswa.
+        * insertData() → Menambahkan data mahasiswa baru ke dalam listMahasiswa.
+        * updateData() → Memperbarui data mahasiswa yang dipilih pada listMahasiswa.
+        * deleteData() → Menghapus data mahasiswa dari listMahasiswa dan melakukan konfirmasi sebelum menghapus.
+        * clearForm() → Mengosongkan form dan mengatur ulang tombol yaitu, "Update" menjadi "Add", invisible tombol "Delete", dan reset index.
+        * populateList() → Mengisi listMahasiswa dengan contoh data mahasiswa.
 
 
 # Penjelasan Alur Program
-* Dalam main kita buat objek dari child kelas komponen dahulu untuk bisa membuat kelas laptop dan atau pc dengan mengisi parameternya.
-* Kemudian komponen yang telah dibuat ditambahkan ke dalam objek Laptop atau Pc. CPU dan GPU diatur langsung, sedangkan RAM dan hard drive disimpan dalam daftar (array of object) untuk membuat objek myPC dan myLaptop
-* Membuat header supaya lebih rapih dan hardcode tampilan
-* Menampilkan data spesifikasi dari laptop dan pc sesuai dengan atributnya
+ * Program dimulai dengan Jendela GUI yang muncul setelah di run.
+ * Jendela GUI akan menampilkan form dan daftar data mahasiswa.
+
+Terdapat 3 fitur yang dapat dilakukan oleh user dengan alur berikut.
+   1. Menambahkan Data
+       * Untuk menambahkan data mahasiswa, user mengisi form dan memasukkan data mahasiswa (NIM, Nama, Jenis Kelamin, Status) kemudian klik button Add.
+       * Objek Mahasiswa dibuat berdasarkan input kemudian objek ini dimasukkan ke dalam ArrayList<Mahasiswa>.
+       * Muncul pop-up notifikasi sukses.
+       * Nama dan status mahasiswa ditampilkan di JList.
+       * Setelah menambahkan mahasiswa, input field dikosongkan agar bisa diisi lagi.
+         
+   2. Mengupdate Data
+       * Untuk mengupdate data, user klik salah satu baris data mahasiswa di JList, lalu form yang semula kosong akan terisi dengan data tersebut.
+       * Button Add akan berubah nama menjadi Update
+       * Lakukan perubahan data yang diperlukan kemudian klik Update.
+       * Muncul pop-up notifikasi sukses.
+       * Nama dan status mahasiswa yang baru diupdate ditampilkan di JList.
+       * Setelah menambahkan mahasiswa, input field dikosongkan agar bisa diisi lagi.
+  
+  3. Menghapus Data
+       * Untuk menghapus data, user klik salah satu baris data mahasiswa di JList, lalu form yang semula kosong akan terisi dengan data tersebut.
+       * Button Add akan berubah nama menjadi Update
+       * Lalu klik button Delete.
+       * Muncul pop-up confirmation prompt, untuk konfirmasi penghapusan data
+       * Pilih Yes untuk menghapus data, pilih No untuk cancel
+       * Nama dan status mahasiswa yang baru dihapus diremove dari tampilan di JList.
+       * Setelah menambahkan mahasiswa, input field dikosongkan agar bisa diisi lagi.
 
 
 # Dokumentasi Program
-https://github.com/user-attachments/assets/508d7d5d-9b4b-441c-a4f8-b480ebe78263
+https://github.com/user-attachments/assets/ce80923a-e84d-45e4-8736-cb87ec218bc4
+
 
