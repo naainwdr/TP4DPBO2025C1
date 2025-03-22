@@ -2,10 +2,11 @@
 
 Saya Nina Wulandari dengan NIM 2312091 mengerjakan Tugas Praktikum 4 dalam mata kuliah DPBO untuk keberkahan-Nya maka saya tidak melakukan kecurangan seperti yang telah dispesifikasikan. Aamiin
 
+# Desain Class
+![Diagram TP4 drawio](https://github.com/user-attachments/assets/10954807-0bde-4936-9260-8a0a082bae0e)
+
 # Desain Form
 ![FORM](https://github.com/user-attachments/assets/622954bb-284f-40af-b70a-7cacad44da29)
-
-# Desain Class
 
 
 # Penjelasan Atribut dan Methods
@@ -48,6 +49,7 @@ Saya Nina Wulandari dengan NIM 2312091 mengerjakan Tugas Praktikum 4 dalam mata 
 # Penjelasan Alur Program
  * Program dimulai dengan Jendela GUI yang muncul setelah di run.
  * Jendela GUI akan menampilkan form dan daftar data mahasiswa.
+ * Disini saya menambahkan 1 atribut dan formnya sebagai modifikasi tugas bonus, atribut tersebut adalah statusMahasiswa yang mana menunjukkan apakah mahasiswa tersebut aktif, sedang cuti, sudah         lulus, atau dropout. Untuk formnya sendiri saya gunakan JComboBox supaya bisa dropdown pilihannya.
 
 Terdapat 3 fitur yang dapat dilakukan oleh user dengan alur berikut.
    1. Menambahkan Data
